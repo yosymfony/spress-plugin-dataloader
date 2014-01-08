@@ -1,0 +1,19 @@
+{
+    "name": "yosymfony/spress-plugin-dataloader",
+    "type": "spress-plugin",
+    "description": "Dataloader plugin for Spress",
+    "keywords": ["spress", "plugin", "json"],
+    "license": "MIT",
+    "require": {
+        "yosymfony/spress-installer": "~1.0"
+    },
+    "extra": {
+        "spress_name": "Spress-plugin-dataloader"
+    },
+    "autoload": {
+        "psr-0": {
+            "Yosymfony\\Spress\\Plugins\\SpressDataLoader": ""
+        }
+    },
+    "minimum-stability": "dev"
+}
