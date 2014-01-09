@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Yosymfony\\Spress\\Plugins\\SpressDataLoader": ""
+            "SpressPlugins\\SpressDataLoader": ""
         }
     },
     "minimum-stability": "dev"
