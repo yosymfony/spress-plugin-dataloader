@@ -45,7 +45,7 @@ class SpressDataLoader extends Plugin
             return false;
         }
         
-        $splFile = new SplFileInfo($source . '/' . $item);
+        $splFile = new \SplFileInfo($source . '/' . $item);
         $extension = $splFile->getExtension();
 
         if($extension != 'json' || $splFile->isDir() || false == $splFile->isReadable())
@@ -56,7 +56,7 @@ class SpressDataLoader extends Plugin
         return $splFile;
     }
     
-    private function readJsonFile(SplFileInfo $splFile)
+    private function readJsonFile(\SplFileInfo $splFile)
     {
         $result = [];
         $name = $splFile->getBasename('.json');
@@ -66,7 +66,7 @@ class SpressDataLoader extends Plugin
         return $result;
     }
     
-    private function getContentFile(SplFileInfo $splFile)
+    private function getContentFile(\SplFileInfo $splFile)
     {
         $level = error_reporting(0);
         $content = file_get_contents($splFile->getRealPath());
