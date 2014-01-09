@@ -9,7 +9,7 @@
     },
     "extra": {
         "spress_name": "Spress-plugin-dataloader",
-        "spress_class": "Yosymfony\\Spress\\Plugins\\SpressDataLoader\\SpressDataLoader"
+        "spress_class": "Yosymfony\\Spress\\Plugins\\SpressDataLoader\\SpressDataLoader",
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
