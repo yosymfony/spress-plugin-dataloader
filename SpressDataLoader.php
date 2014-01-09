@@ -1,11 +1,11 @@
 <?php
 
+namespace SpressPlugins\SpressDataLoader;
+
 use Symfony\Component\EventDispatcher\Event;
 use Yosymfony\Spress\Plugin\Plugin;
 use Yosymfony\Spress\Plugin\EventSubscriber;
 use Yosymfony\Spress\Plugin\Event\EnviromentEvent;
-
-namespace SpressPlugins\SpressDataLoader;
 
 class SpressDataLoader extends Plugin
 {
