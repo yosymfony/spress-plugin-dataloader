@@ -13,7 +13,7 @@ Go to your Spress site and add the following to your `composer.json` and run
 }
 ```
 
-### How to use
+### How to use?
 Go to your Spress site an create `_data` folder. In this folder you can to create
 [JSON](http://en.wikipedia.org/wiki/JSON) that will be available in
 `site.data.<yourFilename>`.
