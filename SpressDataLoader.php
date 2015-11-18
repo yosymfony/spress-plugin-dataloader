@@ -2,23 +2,34 @@
 
 namespace SpressPlugins\SpressDataLoader;
 
-use Symfony\Component\EventDispatcher\Event;
-use Yosymfony\Spress\Plugin\Plugin;
-use Yosymfony\Spress\Plugin\EventSubscriber;
-use Yosymfony\Spress\Plugin\Event\EnviromentEvent;
+use Yosymfony\Spress\Core\Plugin\PluginInterface;
+use Yosymfony\Spress\Core\Plugin\EventSubscriber;
+use Yosymfony\Spress\Core\Plugin\Event\EnvironmentEvent;
+use Yosymfony\Spress\Core\Plugin\Event\ContentEvent;
+use Yosymfony\Spress\Core\Plugin\Event\FinishEvent;
+use Yosymfony\Spress\Core\Plugin\Event\RenderEvent;
 
-class SpressDataLoader extends Plugin
+class SpressDataLoader implements PluginInterface
 {
     public function initialize(EventSubscriber $subscriber)
     {
        $subscriber->addEventListener('spress.start', 'onStart');
     }
+
+    public function getMetas()
+    {
+        return [
+            'name' => 'yosymfony/spress-plugin-dataloader',
+            'description' => 'Dataloader plugin for Spress',
+            'author' => 'Victor Puertas',
+            'license' => 'MIT',
+        ];
+    }
     
     public function onStart(EnviromentEvent $event)
     {
-        $sourceDir = $event->getSourceDir();
-        $repository = $event->getConfigRepository();
-        $dataDir = $sourceDir . '/_data';
+        $configValues = $event->getConfigValues();
+        $dataDir = __DIR__.'/../../data';
         $data = [];
         
         if(file_exists($dataDir) && is_dir($dataDir))
@@ -35,7 +46,9 @@ class SpressDataLoader extends Plugin
             }
         }
         
-        $repository['data'] = $data;
+        $configValues['data'] = $data;
+
+        $event->setConfigValues($configValues);
     }
     
     private function getSplFile($source, $item)
