@@ -1,7 +1,8 @@
 ## Data loader plugins for Spress
 
+![Spress 2 ready](https://img.shields.io/badge/Spress%202-ready-brightgreen.svg)
+
 Loads data located at `./src/data/` folder of your site.
-This plugin requires Spress 2.x.
 
 ### How to install?
 
