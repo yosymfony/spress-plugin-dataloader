@@ -1,4 +1,4 @@
-## Data loader plugins for Spress
+## Data loader plugin for Spress
 
 ![Spress 2 ready](https://img.shields.io/badge/Spress%202-ready-brightgreen.svg)
 
