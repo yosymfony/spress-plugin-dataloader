@@ -4,7 +4,7 @@
 
 Loads data located at `./src/data/` folder of your site.
 
-**This plugin requires Spress >= 2.0**. If you are using Spress 1.x, go to [1.0.1](https://github.com/yosymfony/Spress-plugin-more-tag/releases/tag/v1.0.1) version of the plugin.
+**This plugin requires Spress >= 2.0**. If you are using Spress 1.x, go to [1.0.0](https://github.com/yosymfony/spress-plugin-dataloader/tree/v1.0.0) version of the plugin.
 
 ### How to install?
 
