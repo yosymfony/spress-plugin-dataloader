@@ -11,7 +11,7 @@ Loads data located at `./src/data/` folder of your site.
 Go to your Spress site and add the following to your `composer.json` and run 
 `composer update`:
 
-```
+```json
 "require": {
     "yosymfony/spress-plugin-dataloader": "2.0.*"
 }
@@ -31,7 +31,7 @@ Example with a users array:
 
 In your Twig templates, you can access to this data:
 
-```
+```twig
 {% for theme in site.data.blogUsers %}
 ...
 {% endfor %}
