@@ -12,18 +12,12 @@
         }
     ],
     "require": {
-        "yosymfony/spress-installer": "~1.0"
+        "spress/spress-installer": "2.0.*"
     },
     "extra": {
-        "spress_name": "Spress-plugin-dataloader",
         "spress_class": "SpressPlugins\\SpressDataLoader\\SpressDataLoader",
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
-    },
-    "autoload": {
-        "psr-4": {
-            "SpressPlugins\\SpressDataLoader\\": ""
+            "dev-master": "2.0.x-dev"
         }
     }
 }
