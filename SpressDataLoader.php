@@ -10,7 +10,9 @@ use Symfony\Component\Yaml\Yaml;
 
 class SpressDataLoader implements PluginInterface
 {
-    const EXTENSIONS = ['json', 'yml'];
+    const EXTENSIONS = [ 'json', 'yml', 'yaml', ];
+    const EXTENSIONS_YAML = [ 'yml', 'yaml', ];
+    const EXTENSIONS_JSON = [ 'json', ];
 
     public function initialize(EventSubscriber $subscriber)
     {
@@ -75,11 +77,11 @@ class SpressDataLoader implements PluginInterface
      */
     private function readFile(\SplFileInfo $splFile)
     {
-        if ('yml' === strtolower($splFile->getExtension())) {
+        if (in_array(strtolower($splFile->getExtension()), self::EXTENSIONS_YAML , true)) {
             return $this->readFileYaml($splFile);
         }
 
-        if ('json' === strtolower($splFile->getExtension())) {
+        if (in_array(strtolower($splFile->getExtension()), self::EXTENSIONS_JSON, true)) {
             return $this->readJsonFile($splFile);
         }
 
