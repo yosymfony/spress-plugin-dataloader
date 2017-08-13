@@ -11,7 +11,7 @@ Loads data located at `./src/data/` folder of your site.
 Go to your site folder and input the following command:
 
 ```bash
-$ spress add:plugin spress/spress-theme-spresso yosymfony/spress-plugin-dataloader
+$ spress add:plugin yosymfony/spress-plugin-dataloader
 ```
 
 ### How to use?
