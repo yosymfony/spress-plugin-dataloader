@@ -19,21 +19,20 @@ $ spress add:plugin yosymfony/spress-plugin-dataloader
 Go to your Spress site an create `./src/data` folder. In this folder you can to create
 [JSON](http://en.wikipedia.org/wiki/JSON) or [YAML](http://en.wikipedia.org/wiki/YAML) that will be available in `site.data.<yourFilenameWithoutExtension>`.
 
-Example with a users array and a Json file:
+Example with an users array and a Json file:
 
 ```
 ./src/data/
 |- blogUsers.json
 ```
 
-Example with a users array and a Yaml file (the extension `yaml` is valid too):
+Example with an users array and a Yaml file (the extension `yaml` is valid too):
 
 ```
 ./src/data/
 |- blogUsers.yml
 ```
-
-In your Twig templates, you can access to this data:
+Access to this data in Twig templates:
 
 ```twig
 {% for theme in site.data.blogUsers %}
