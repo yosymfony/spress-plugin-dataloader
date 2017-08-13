@@ -8,13 +8,10 @@ Loads data located at `./src/data/` folder of your site.
 
 ### How to install?
 
-Go to your Spress site and add the following to your `composer.json` and run 
-`composer update`:
+Go to your site folder and input the following command:
 
-```json
-"require": {
-    "yosymfony/spress-plugin-dataloader": "2.0.*"
-}
+```bash
+$ spress add:plugin spress/spress-theme-spresso yosymfony/spress-plugin-dataloader
 ```
 
 ### How to use?
@@ -22,11 +19,18 @@ Go to your Spress site and add the following to your `composer.json` and run
 Go to your Spress site an create `./src/data` folder. In this folder you can to create
 [JSON](http://en.wikipedia.org/wiki/JSON) or [YAML](http://en.wikipedia.org/wiki/YAML) that will be available in `site.data.<yourFilenameWithoutExtension>`.
 
-Example with a users array:
+Example with a users array and a Json file:
 
 ```
 ./src/data/
-|- blogUsers.{json,yml,yaml}
+|- blogUsers.json
+```
+
+Example with a users array and a Yaml file (the extension `yaml` is valid too):
+
+```
+./src/data/
+|- blogUsers.yml
 ```
 
 In your Twig templates, you can access to this data:
