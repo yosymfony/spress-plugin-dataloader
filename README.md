@@ -20,13 +20,13 @@ Go to your Spress site and add the following to your `composer.json` and run
 ### How to use?
 
 Go to your Spress site an create `./src/data` folder. In this folder you can to create
-[JSON](http://en.wikipedia.org/wiki/JSON) that will be available in `site.data.<yourFilename>`.
+[JSON](http://en.wikipedia.org/wiki/JSON) or [YAML](http://en.wikipedia.org/wiki/YAML) that will be available in `site.data.<yourFilenameWithoutExtension>`.
 
 Example with a users array:
 
 ```
 ./src/data/
-|- blogUsers.json
+|- blogUsers.{json,yml,yaml}
 ```
 
 In your Twig templates, you can access to this data:
