@@ -14,11 +14,13 @@ class SpressDataLoader implements PluginInterface
     const EXTENSIONS_YAML = [ 'yml', 'yaml', ];
     const EXTENSIONS_JSON = [ 'json', ];
     const EXTENSIONS_MARKDOWN = [ 'md', 'markdown' ];
+    const EXTENSIONS_TEXT = [ 'text', 'txt' ];
 
     const EXTENSION_MAPPING = [
         'readYamlFile' => self::EXTENSIONS_YAML,
         'readJsonFile' => self::EXTENSIONS_JSON,
         'readMarkdownFile' => self::EXTENSIONS_MARKDOWN,
+        'readTextFile' => self::EXTENSIONS_TEXT,
     ];
 
     /** @var string[] */
@@ -102,7 +104,10 @@ class SpressDataLoader implements PluginInterface
     {
         foreach (self::EXTENSION_MAPPING as $method => $extensions) {
             if (in_array(strtolower($splFile->getExtension()), $extensions , true)) {
-                return $this->$method($splFile);
+                $result = [];
+                $name = $splFile->getBasename('.' . $splFile->getExtension());
+                $result[$name] = $this->$method($splFile);
+                return $result;
             }
         }
 
@@ -111,50 +116,44 @@ class SpressDataLoader implements PluginInterface
 
     /**
      * @param \SplFileInfo $splFile
-     * @return array
+     * @return mixed
      * @throws \RuntimeException
      */
     private function readYamlFile(\SplFileInfo $splFile)
     {
-        $result = [];
-
-        $name = $splFile->getBasename('.' . $splFile->getExtension());
         try {
-            $data =  Yaml::parse($this->getContentFile($splFile));
+            return Yaml::parse($this->getContentFile($splFile));
         } catch (ParseException $e) {
             throw new \RuntimeException('Can\'t parse data file ' . $splFile->getBasename(), 0, $e);
         }
-        $result[$name] = $data;
-
-        return $result;
     }
 
     /**
      * @param \SplFileInfo $splFile
-     * @return array
+     * @return mixed
      */
     private function readJsonFile(\SplFileInfo $splFile)
     {
-        $result = [];
-        $name = $splFile->getBasename('.' . $splFile->getExtension());
-        $json = json_decode($this->getContentFile($splFile), true);
-        $result[$name] = $json;
+        return json_decode($this->getContentFile($splFile), true);
 
-        return $result;
     }
 
     /**
      * @param \SplFileInfo $splFile
-     * @return array
+     * @return string
      */
     private function readMarkdownFile(\SplFileInfo $splFile)
     {
-        $result = [];
-        $name = $splFile->getBasename('.' . $splFile->getExtension());
-        $markdown = $this->getContentFile($splFile);
-        $result[$name] = MarkdownExtra::defaultTransform($markdown);
+        return MarkdownExtra::defaultTransform($this->getContentFile($splFile));
+    }
 
-        return $result;
+    /**
+     * @param \SplFileInfo $splFile
+     * @return string
+     */
+    private function readTextFile(\SplFileInfo $splFile)
+    {
+        return $this->getContentFile($splFile);
     }
 
     private function getContentFile(\SplFileInfo $splFile)
