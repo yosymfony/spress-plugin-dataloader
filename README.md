@@ -17,7 +17,7 @@ $ spress add:plugin yosymfony/spress-plugin-dataloader
 ### How to use?
 
 Go to your Spress site an create `./src/data` folder. In this folder you can to create
-[JSON](http://en.wikipedia.org/wiki/JSON) or [YAML](http://en.wikipedia.org/wiki/YAML) that will be available in `site.data.<yourFilenameWithoutExtension>`.
+[JSON](https://en.wikipedia.org/wiki/JSON), [YAML](https://en.wikipedia.org/wiki/YAML), [Markdown](https://en.wikipedia.org/wiki/Markdown) or Textfiles that will be available in `site.data.<yourFilenameWithoutExtension>`.
 
 Example with an users array and a Json file:
 
@@ -32,6 +32,11 @@ Example with an users array and a Yaml file (the extension `yaml` is valid too):
 ./src/data/
 |- blogUsers.yml
 ```
+
+For markdown files the extension `md` or `markdown` are valid.
+Text file extensions are `txt` or `text`. 
+Markdown and text files are available as string. 
+
 Access to this data in Twig templates:
 
 ```twig
